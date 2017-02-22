@@ -1,0 +1,14 @@
+material Wheel-Material
+{
+    technique
+    {
+        pass
+        {
+            ambient 1.0 1.0 0.0 1.0
+            diffuse 0.1.0 0.1 0.1 1.0
+
+            lighting on
+            shading gouraud
+        }
+    }
+}

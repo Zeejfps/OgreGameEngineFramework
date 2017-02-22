@@ -1,0 +1,137 @@
+<scene name="Simple">
+     <paths>
+          <path>./assets/models</path>
+          <path>./assets/materials</path>
+     </paths>
+     <models>
+          <model>Ground.mesh</model>
+          <model>Truck.mesh</model>
+          <model>Platform.mesh</model>
+          <model>Wheel.mesh</model>
+          <model>Monkey.mesh</model>
+          <model>Tree.mesh</model>
+          <model>Squirrel.mesh</model>
+          <model>Hood.mesh</model>
+          <model>Spring.mesh</model>
+     </models>
+     <lights>
+          <light name="MainLight">
+               <position x="20" y="80" z="50"/>
+          </light>
+     </lights>
+     <nodes>
+          <node name="Player">
+               <translate x="0" y="7.5" z="14"/>
+               <camera name="MainCamera">
+                    <clipping nearClipDistance="0.1" farClipDistance="0"/>
+               </camera>
+               <node name="Crosshair">
+                    <translate x="0" y="0" z="-0.5"/>
+                    <scale x="0.03" y="0.03"/>
+                    <entity name="Crosshair" meshFile="Crosshair.mesh" material="Crosshair-Material"/>
+               </node>
+          </node>
+          <node name="PlatformNode">
+          	<animation name="rotate" len="4" interp="linear">
+          		<keyframe t="0">
+          			<translate x="0" y="0.5" z="0"/>
+          			<rotate a="0" x="0" y="1" z="0"/>
+          		</keyframe>
+          		<keyframe t="2">
+          			<translate x="0" y="0.5" z="0"/>
+          			<rotate a="-180" x="0" y="1" z="0"/>
+          		</keyframe>
+          		<keyframe t="4">
+          			<translate x="0" y="0.5" z="0"/>
+          			<rotate a="-360" x="0" y="1" z="0"/>
+          		</keyframe>
+          	</animation>
+               <translate x="0" y="0.5" z="0"/>
+               <entity meshFile="Platform.mesh" material="Default-Material"/>
+               <node name="Squirrel02">
+                    <entity name="Squirrel02" meshFile="Squirrel.mesh" material="Default-Material"/>
+                    <translate x="-1" y="0.5" z="2.6"/>
+                    <rotate a="33" y="1"/>
+               </node>
+               <node name="TruckNode">
+                    <translate y="1.7"/>
+                    <rotate a="45" x="0" y="1" z="0"/>
+                    <entity meshFile="Truck.mesh" material="Default-Material"/>
+                    <node name="Hood">
+                    	<translate x="0" y="0.43" z="1.33418"/>
+                    	<animation name="hood_open_anim" len="9.95" interp="linear">
+                    		<keyframe t="0">
+                    			<translate x="0" y="0.43" z="1.33418"/>
+          					<rotate a="0" x="1" y="0" z="0"/>
+                    		</keyframe>
+                    		<keyframe t="2.95">
+                    			<translate x="0" y="0.43" z="1.33418"/>
+          					<rotate a="0" x="1" y="0" z="0"/>
+                    		</keyframe>
+                    		<keyframe t="3.05">
+                    			<translate x="0" y="0.43" z="1.33418"/>
+          					<rotate a="-85" x="1" y="0" z="0"/>
+                    		</keyframe>
+                    		<keyframe t="7">
+                    			<translate x="0" y="0.43" z="1.33418"/>
+          					<rotate a="-85" x="1" y="0" z="0"/>
+                    		</keyframe>
+                    		<keyframe t="7.5">
+                    			<translate x="0" y="0.43" z="1.33418"/>
+          					<rotate a="0" x="1" y="0" z="0"/>
+                    		</keyframe>
+                    	</animation>
+                         <entity meshFile="Hood.mesh" material="Default-Material"/>
+                    </node>
+                    <node name="Spring">
+                    	<translate x="0" y="-0.85" z="2.25"/>
+                    	<rotate a="0" x="0" y="1" z="0"/>
+                    	<scale x="0.5" y="0.5" z="0.5"/>
+                         <entity name="Spring" meshFile="Spring.mesh" material="Monkey-Material"/>
+                    </node>
+                    <node name="MonkeyNode">
+                         <translate x=-0.1 y=0.4 z=-1.6/>
+                         <rotate a=-56 y=1/>
+                         <rotate a=-46 x=1/>
+                         <rotate a=+25 y=1/>
+                         <entity meshFile="Monkey.mesh" material="Monkey-Material"/>
+                    </node>
+                    <node name="WheelNodeFR">
+                         <translate x="-1.4" y="-0.69" z="2.1"/>
+                         <rotate a="-30" x="0" y="1" z="0"/>
+                         <entity meshFile="Wheel.mesh" material="Wheel-Material"/>
+                    </node>
+                    <node name="WheelNodeFL">
+                         <translate x="1.4" y="-0.69" z="2.1"/>
+                         <rotate a="180" x="0" y="1" z="0"/>
+                         <rotate a="-30" x="0" y="1" z="0"/>
+                         <entity meshFile="Wheel.mesh" material="Wheel-Material"/>
+                    </node>
+                    <node name="WheelNodeBR">
+                         <translate x="-1.4" y="-0.69" z="-1.59"/>
+                         <entity meshFile="Wheel.mesh" material="Wheel-Material"/>
+                    </node>
+                    <node name="WheelNodeBL">
+                         <translate x="1.4" y="-0.69" z="-1.59"/>
+                         <rotate a="180" x="0" y="1" z="0"/>
+                         <entity meshFile="Wheel.mesh" material="Wheel-Material"/>
+                    </node>
+               </node>
+          </node>
+          <node name="TreeNode01">
+               <entity meshFile="Tree.mesh" material="Tree-Material"/>
+               <translate x="-4.7"/>
+               <rotate a="30" y="1"/>
+          </node>
+          <node name="TreeNode02">
+               <entity meshFile="Tree.mesh" material="Tree-Material"/>
+               <translate x="4" z="-5"/>
+               <rotate a="165" y="1"/>
+          </node>
+          <node name="Squirrel01">
+               <entity name="Squirrel01" meshFile="Squirrel.mesh" material="Default-Material"/>
+               <translate x="3" y="0" z="5"/>
+               <rotate a="-83" y="1"/>
+          </node>
+     </nodes>
+</scene>
